@@ -21,11 +21,21 @@ public class EmailService : IEmailService
     {
         var smtpSettings = _config.GetSection("SmtpSettings");
 
-        var host          = smtpSettings["Host"]          ?? string.Empty;
-        var port          = int.Parse(smtpSettings["Port"] ?? "587");
-        var senderEmail   = smtpSettings["SenderEmail"]   ?? string.Empty;
-        var receiverEmail = smtpSettings["ReceiverEmail"] ?? string.Empty;
-        var password      = smtpSettings["Password"]      ?? string.Empty;
+        var host          = Environment.GetEnvironmentVariable("SMTP_HOST")     
+                        ?? _config["SmtpSettings:Host"]     
+                        ?? string.Empty;
+        var port          = int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT")     
+                        ?? _config["SmtpSettings:Port"]     
+                        ?? "587");
+        var senderEmail   = Environment.GetEnvironmentVariable("SMTP_SENDER")   
+                        ?? _config["SmtpSettings:SenderEmail"]   
+                        ?? string.Empty;
+        var receiverEmail = Environment.GetEnvironmentVariable("SMTP_RECEIVER") 
+                        ?? _config["SmtpSettings:ReceiverEmail"] 
+                        ?? string.Empty;
+        var password      = Environment.GetEnvironmentVariable("SMTP_PASSWORD") 
+                        ?? _config["SmtpSettings:Password"] 
+                        ?? string.Empty;
 
         var message = new MimeMessage();
 
