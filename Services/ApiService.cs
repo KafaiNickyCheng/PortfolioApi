@@ -13,12 +13,13 @@ public class ApiKeyService : IApiKeyService
 
     public bool IsValidApiKey(string apiKey)
     {
-        var validKey = _config["ApiSettings:ApiKey"] ?? string.Empty;
-        
-        // Temporary debug — remove after fix
+        var validKey = _config["ApiSettings:ApiKey"] 
+                    ?? Environment.GetEnvironmentVariable("ApiSettings__ApiKey")
+                    ?? string.Empty;
+
         Console.WriteLine($"Expected key: '{validKey}'");
         Console.WriteLine($"Received key: '{apiKey}'");
-        
+
         return !string.IsNullOrEmpty(apiKey) && apiKey == validKey;
     }
 }
