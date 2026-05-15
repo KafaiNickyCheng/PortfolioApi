@@ -5,6 +5,7 @@ using portfolio_api.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddHttpClient("Resend");
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IApiKeyService, ApiKeyService>();
 
