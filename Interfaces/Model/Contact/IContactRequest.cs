@@ -1,4 +1,4 @@
-namespace portfolio_api.Interfaces.Models;
+namespace portfolio_api.Interfaces.Model.Contact;
 
 public interface IContactRequest
 {

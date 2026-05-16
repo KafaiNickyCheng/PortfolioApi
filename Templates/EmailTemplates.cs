@@ -1,5 +1,4 @@
-using portfolio_api.Models;
-
+using portfolio_api.Models.Contact;
 namespace portfolio_api.Templates;
 
 public static class EmailTemplates

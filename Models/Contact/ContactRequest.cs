@@ -1,6 +1,8 @@
-namespace portfolio_api.Models;
+using portfolio_api.Interfaces.Model.Contact;
 
-public class ContactRequest
+namespace portfolio_api.Models.Contact;
+
+public class ContactRequest : IContactRequest
 {
     public string Name    { get; set; } = string.Empty;
     public string Email   { get; set; } = string.Empty;

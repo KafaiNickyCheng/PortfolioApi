@@ -1,6 +1,6 @@
 using portfolio_api.Models;
-
-namespace portfolio_api.Interfaces.Services;
+using portfolio_api.Models.Contact;
+namespace portfolio_api.Interfaces.Service;
 
 public interface IEmailService
 {
