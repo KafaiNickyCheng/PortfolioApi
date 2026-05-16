@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
         policy
             .WithOrigins(
                 "http://localhost:3000",
-                "https://your-portfolio.vercel.app"
+                "https://kafai-portfolio.up.railway.app"
             )
             .AllowAnyHeader()
             .AllowAnyMethod();
